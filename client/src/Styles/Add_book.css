@@ -1,0 +1,23 @@
+.input_add_book {
+width: 20%;
+padding: 10px 20px;
+margin: 5px 0;
+display: grid;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+padding: 0px 5px 0px 5px;
+color: rgb(120, 120, 120);
+background-color: rgb(255, 255, 255);
+border: 1.5px solid rgb(70, 70, 70);
+}
+.information{
+    background-color: rgb(255, 255, 255);
+}
+.form-label{
+padding: 0px 0px;
+margin: 0px 0;
+display: grid;
+}
+
+
