@@ -30,7 +30,7 @@ function App() {
           <Route path="Book_shelf" element={<Book_home/>} />
           <Route path="Add_book" element={<Add_book/>} />
           <Route path="Manage_book" element={<Manage_book/>} />
-          <Route path="Edit_book/:book_ID_select" element={<Edit_Book/>}></Route>
+          <Route path="Edit_book/:b_ID" element={<Edit_Book/>}></Route>
 
           
         </Route>

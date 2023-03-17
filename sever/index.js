@@ -14,7 +14,7 @@ const db = mysql.createConnection({
     database: "bookstoresystem"
 })
 
-var selectbook = "";
+ var selectbook = "";
 
 app.get('/Requst_book',(req,res) => {
     db.query("SELECT * FROM book",(err , result) => {
@@ -27,20 +27,30 @@ app.get('/Requst_book',(req,res) => {
 });
 
 app.post('/Post_select_book',(req,res) => {
-    const Select_book_ID = req.body.selectbook;
+    const Select_book_ID = req.body.b_ID;
     selectbook = Select_book_ID;
-    res.send(Select_book_ID)
-    console.log(Select_book_ID)
+    console.log(selectbook);
 })
 
+
+
 app.post('/Requst_book_somebook',(req,res) => {
+    const Select_book_ID = req.body.b_ID;
+    selectbook = Select_book_ID;
+
     
-    db.query("SELECT * FROM book WHERE 'Book_ID' == (?)",[Select_book_ID],(err , result) => {
+
+    
+    db.query("SELECT * FROM `book` WHERE `Book_ID` = (?)",[selectbook],(err,result) => {
+        
         if(err){
             console.log(err);
         }else{
             res.send(result);
-            console.log(result);
+            console.log(result)
+            app.get('/Result_serch_book',(req,res) =>{
+                res.send(result)
+            })
         }
     });
 });

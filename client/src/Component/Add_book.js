@@ -3,6 +3,7 @@ import Axios from 'axios';
 import { useState } from 'react';
 
 import '../Styles/Add_book.css'
+import { Link } from 'react-router-dom';
 
 export default function Add_book() {
 
@@ -47,6 +48,7 @@ export default function Add_book() {
             }
            ])
         })
+        
     }
 
 
@@ -145,7 +147,7 @@ export default function Add_book() {
                       />
                   </div>
                   <p></p>
-                  <button className="btn-add-book" onClick={addBook} href='/Book_shelf'>Add Book</button>
+                  <button className="btn-add-book" onClick={addBook} Link='Book_shelf'>Add Book</button>
                   <p></p>
               </form>
           </div>

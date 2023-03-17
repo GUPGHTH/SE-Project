@@ -1,13 +1,13 @@
 import * as React from 'react';
 import Axios from 'axios';
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useHref, useParams } from 'react-router-dom';
 
 import '../Styles/Add_book.css'
 
 export default function Edit_Book() {
 
-    const {book_ID_select} = useParams();
+    const {b_ID} = useParams();
     const [booklist,setbooklist] = useState([]);
     const [Book_ID,setBook_ID] = useState("");
     const [Book_Name,setBook_Name] = useState("");
@@ -17,20 +17,23 @@ export default function Edit_Book() {
     const [Book_Quantity,setBook_Quantity] = useState(0);
     const [Book_Pic,setrBook_Pic] = useState("");
 
+    const postBooklist = () =>{
+        Axios.post('http://localhost:3001/Requst_book_somebook',{b_ID}).then();
+    }
+    postBooklist()
+
     const getBooklist = () =>{
-        Axios.get('http://localhost:3001/Requst_book').then((Response) => {
+        Axios.get('http://localhost:3001/Result_serch_book').then((Response) => {
             setbooklist(Response.data);
         });
     }
-    getBooklist()
+    
 
-    const getBooksome = () =>{
-        Axios.get('http://localhost:3001/Requst_book_somebook').then((Response) => {
-            setbooklist(Response.data)
-        });
-    }
+    
 
-    getBooklist()
+
+
+   
 
 
     
@@ -57,12 +60,14 @@ export default function Edit_Book() {
             }
            ])
         })
+        
     }
 
 
     return (
-        <div><h2 className='Add_book'>Add book to data base</h2>
-
+        <div><h2 className='Add_book'>Edit book to data base</h2>
+        
+        <p>{booklist.Book_ID}</p>
         <div className='add_book_gridboox'>
           <div className='add_book_item'>
               <form action=''>
@@ -72,6 +77,8 @@ export default function Edit_Book() {
                           type='text'
                           className='input_add_book'
                           placeholder='Enter Book ID'
+                          
+                          
                           onChange={(event) =>{
                               setBook_ID(event.target.value)
                           }} 
@@ -155,7 +162,7 @@ export default function Edit_Book() {
                       />
                   </div>
                   <p></p>
-                  <button className="btn-add-book" onClick={addBook} href='/Book_shelf'>Add Book</button>
+                  <button className="btn-add-book" onClick={addBook}>Add Book</button>
                   <p></p>
               </form>
           </div>
