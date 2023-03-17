@@ -1,11 +1,13 @@
 import * as React from 'react';
 import Axios from 'axios';
 import { useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 import '../Styles/Add_book.css'
 
-export default function Add_book() {
+export default function Edit_Book() {
 
+    const {book_ID_select} = useParams();
     const [booklist,setbooklist] = useState([]);
     const [Book_ID,setBook_ID] = useState("");
     const [Book_Name,setBook_Name] = useState("");
@@ -20,6 +22,14 @@ export default function Add_book() {
             setbooklist(Response.data);
         });
     }
+    getBooklist()
+
+    const getBooksome = () =>{
+        Axios.get('http://localhost:3001/Requst_book_somebook').then((Response) => {
+            setbooklist(Response.data)
+        });
+    }
+
     getBooklist()
 
 

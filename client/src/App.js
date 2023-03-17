@@ -9,6 +9,7 @@ import Home from './Component/Home';
 import Layout from './Component/Layout';
 import Add_book from './Component/Add_book';
 import Manage_book from './Component/Management_book';
+import Edit_Book from './Component/Edit_book';
 import {
   BrowserRouter,
   Switch,
@@ -29,6 +30,7 @@ function App() {
           <Route path="Book_shelf" element={<Book_home/>} />
           <Route path="Add_book" element={<Add_book/>} />
           <Route path="Manage_book" element={<Manage_book/>} />
+          <Route path="Edit_book/:book_ID_select" element={<Edit_Book/>}></Route>
 
           
         </Route>

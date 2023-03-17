@@ -3,6 +3,7 @@ const app = express();
 const mysql = require('mysql');
 const cors = require('cors');
 
+
 app.use(cors());
 app.use(express.json());
 
@@ -13,12 +14,33 @@ const db = mysql.createConnection({
     database: "bookstoresystem"
 })
 
+var selectbook = "";
+
 app.get('/Requst_book',(req,res) => {
     db.query("SELECT * FROM book",(err , result) => {
         if(err){
             console.log(err);
         }else{
             res.send(result);
+        }
+    });
+});
+
+app.post('/Post_select_book',(req,res) => {
+    const Select_book_ID = req.body.selectbook;
+    selectbook = Select_book_ID;
+    res.send(Select_book_ID)
+    console.log(Select_book_ID)
+})
+
+app.post('/Requst_book_somebook',(req,res) => {
+    
+    db.query("SELECT * FROM book WHERE 'Book_ID' == (?)",[Select_book_ID],(err , result) => {
+        if(err){
+            console.log(err);
+        }else{
+            res.send(result);
+            console.log(result);
         }
     });
 });
