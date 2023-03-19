@@ -1,62 +1,35 @@
-.grid-Box{
+body{
+  background: #f5f5f5;
+  text-align: center;
+}
+.books{
   display: grid;
   grid: auto auto / auto auto auto auto;
-  margin-top: 20px;
-  margin-left: 5%;
+  margin-top: 600px; 
   flex-direction: row;
   flex-wrap: wrap;
-  
+  grid-template-columns: repeat(4, 1fr); 
 }
-.grid-item{
-  margin-top: 5px;
-  display: block;
-  box-sizing: border-box;
-  width: 100%;
-  padding: 5px 20px;
-  border-radius: 5%;
+.books-sell{
+  margin: 30px 1px;
+}
+.books-sell p{
+  margin: 1px 0px;
   font-size: 20px;
-  background-color: #e9e9e9;
-  
-  
+  font-weight: 400;
 }
-.content{
-  /* background-color: rgb(255, 255, 255);
-  border: 1.5px solid rgb(70, 70, 70);
-  padding: 35px;
-  border-radius: 25%;
-  box-shadow: 4px 4px 10px 0px rgb(61, 77, 255);*/
-  color: #7d7d7d;
-  text-align : left;
+.books-sell img{
+  width: 250px;
+  margin-bottom: 20px;
 }
-.content p{
-  margin-left: 25px;
+.books-sell a{
+  text-decoration: none;
+  color: #000;
+  background: #fff;
+  padding: 0.5rem;
 }
 
-/* 
-@media (max-width: 401px) {
-  .grid-Box { grid-template-columns: repeat(4, 1fr); 
-    background-color: black;
-  }
-} 
-
-
-
-@media (min-width: 400px) {
-  .grid-Box { grid-template-columns: repeat(2, 1fr); 
-  background-color: aqua;
-  }
-} */
-@media screen and (max-width: 800px) {
-  .grid-Box { grid-template-columns: repeat(2, 1fr);
-    flex-direction: row;
-    flex-wrap: wrap;
-    background-color: #77DD77;
-  }
-  
-}
-
-
-/* CSS */
+/* button-28 */
 .button-28 {
   border: 2px solid #1A1A1A;
   border-radius: 10px;
@@ -75,7 +48,7 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  width: 120px;
+  width: 100px;
   will-change: transform;
 }
 
@@ -89,13 +62,77 @@
   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
   transform: translateY(-2px);
 }
+/*---------มือถือ----------*/
+@media screen and (max-width: 500px) {
+  .grid-Box { grid-template-columns: repeat(2, 1fr);
 
-.button-28:active {
-  box-shadow: none;
-  transform: translateY(0);
-}
-.imgbox{
-  width: 200px;
-  height: 250px;
-  margin-top: 10px;
+  }
+  body{
+    background: #ffffff;
+    text-align: center;
+  }
+  .books{
+    display: grid;
+    grid: auto auto / auto auto auto auto;
+    margin-top: 5px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(2, 1fr); 
+  }
+  .books-sell{
+    margin: 5px 1px;
+    border: 1px solid #1A1A1A;
+  }
+  .books-sell p{
+    margin: 1px 0px;
+    font-size: 14px;
+    font-weight: 400;
+  }
+  .books-sell img{
+    width: 100px;
+    height: 120px;
+    margin-bottom: 20px;
+  }
+  .books-sell a{
+    text-decoration: none;
+    color: #000;
+    background: #fff;
+    padding: 0.5rem;
+  }
+
+  .button-28 {
+    display: none;
+    border: 2px solid #1A1A1A;
+    border-radius: 10px;
+    box-sizing: border-box;
+    color: #3B3B3B;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 18px;
+    font-weight: 400;
+    line-height: normal;
+    margin: 1px 1px;
+    min-height: 40px;
+    padding: 1px 1px;
+    text-align: center;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 100px;
+    will-change: transform;
+  }
+  
+  .button-28:disabled {
+    pointer-events: none;
+  }
+  
+  .button-28:hover {
+    color: #fff;
+    background-color: #77DD77;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+  }
+  
+  
 }

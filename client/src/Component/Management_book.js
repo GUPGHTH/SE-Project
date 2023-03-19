@@ -44,7 +44,7 @@ export default function Manage_book() {
                  <div className="grid-Box">
                      <div className='grid-item'>
                         <center><img src="../bg.png" className='imgbox' /></center>
-                         <div className='content' herf>
+                         <div className='content'>
                             <br/>
                              <p>Book ID:{val.Book_ID}</p>
                              <p>{val.Book_Name}</p>
@@ -53,8 +53,14 @@ export default function Manage_book() {
                           <Link to={'/Edit_book/'+val.Book_ID} >
                             
                             <button className="button-28" >Edit Book</button>
-                            </Link>  
-                            <button className="button-29" href='#'>Edit</button>
+                            </Link> 
+
+                            <Link to= {'/Delete_book/'+val.Book_ID}> 
+                            
+                            <button className="button-29" >Delete</button> 
+                            
+                            </Link> 
+                            
 
                      </div>
                  </div>
