@@ -13,7 +13,7 @@ export default function Manage_book() {
 
     
     const [booklist,setbooklist] = useState([]);
-    var B_ID = "";
+    
 
     const getBooklist = () =>{
         Axios.get('http://localhost:3001/Requst_book').then((Response) => {
@@ -22,11 +22,7 @@ export default function Manage_book() {
     }
     getBooklist();
 
-    const Post_select_book = () =>{
-        Axios.post('http://localhost:3001/Post_select_book',{
-            B_ID : B_ID
-        })
-    }
+    
 
     
 
@@ -37,7 +33,7 @@ export default function Manage_book() {
     
 
   return (
-    <div className='grid-Box'>
+    <div className='books'>
         {booklist.map((val, key) =>{
             return (
 

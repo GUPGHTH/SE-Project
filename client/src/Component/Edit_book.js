@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Axios from 'axios';
 import { useState } from 'react';
-import {  useParams } from 'react-router-dom';
+import {  Link, useParams } from 'react-router-dom';
 
 import '../Styles/Add_book.css'
 
@@ -17,29 +17,32 @@ export default function Edit_Book() {
     const [Book_Pic, setrBook_Pic] = useState("");
 
     const postBooklist = () => {
-        Axios.post('http://localhost:3001/Requst_book_somebook', { b_ID }).then();
-        
-    }
-    postBooklist()
-
-
-
-    const getBooklist = async () => {
-        await Axios.get('http://localhost:3001/Result_serch_book').then((Response) => {
+        console.log(b_ID)
+        Axios.post('http://localhost:3001/Requst_book_somebook', { b_ID }).then((Response) => {
             setbooklist(Response.data);
             setBook_ID(Response.data[0].Book_ID);
             setBook_Name(Response.data[0].Book_Name);
+            setBook_Type(Response.data[0].Book_Type);
+            setBook_Price(Response.data[0].Book_Price);
+            setBook_Detail(Response.data[0].Book_Detail);
+            setBook_Quantity(Response.data[0].Book_Quantity);
+            setrBook_Pic(Response.data[0].Book_Pic);
         });
+        
     }
+    
+
+
+
 
     React.useEffect(() => {
-        getBooklist()
-    }, []);
+        postBooklist()
+    },[]);
 
 
 
-    const addBook = () => {
-        Axios.post('http://localhost:3001/Add_book_to_table', {
+    const Updatebook = () => {
+        Axios.post('http://localhost:3001/Update_book_to_table', {
             Book_ID: Book_ID,
             Book_Name: Book_Name,
             Book_Type: Book_Type,
@@ -63,15 +66,12 @@ export default function Edit_Book() {
         })
 
     }
-    console.log(b_ID)
+    
+    
 
 
     return (
         <div><h2 className='Add_book'>Edit book to data base</h2>
-
-
-
-
 
             <div className='add_book_gridboox'>
                 <div className='add_book_item'>
@@ -99,7 +99,7 @@ export default function Edit_Book() {
                                 type='text'
                                 className='input_add_book'
                                 placeholder='Enter name'
-                                onChange={(event) => {
+                                onChange={(event) => { 
                                     setBook_Name(event.target.value)
                                 }}
                             />
@@ -109,6 +109,7 @@ export default function Edit_Book() {
                                 Book_Type:
                             </label>
                             <input
+                            defaultValue={booklist[0]?.Book_Type || ""}
                                 type='text'
                                 className='input_add_book'
                                 placeholder='Enter TYpe'
@@ -122,6 +123,7 @@ export default function Edit_Book() {
                                 Book_Price:
                             </label>
                             <input
+                            defaultValue={booklist[0]?.Book_Price || ""}
                                 type='float'
                                 className='input_add_book'
                                 placeholder='Enter price'
@@ -135,6 +137,7 @@ export default function Edit_Book() {
                                 Book_Detail:
                             </label>
                             <input
+                            defaultValue={booklist[0]?.Book_Detail || ""}
                                 type='text'
                                 className='input_add_book'
                                 placeholder='Enter Detail'
@@ -148,6 +151,7 @@ export default function Edit_Book() {
                                 Book_quantity:
                             </label>
                             <input
+                                defaultValue={booklist[0]?.Book_Quantity || ""}
                                 type='int'
                                 className='input_add_book'
                                 placeholder='Enter Quantity'
@@ -161,6 +165,7 @@ export default function Edit_Book() {
                                 Book_Pic:
                             </label>
                             <input
+                                defaultValue={booklist[0]?.Book_Pic || ""}
                                 type='text'
                                 className='input_add_book'
                                 placeholder='Enter Picture url'
@@ -170,7 +175,10 @@ export default function Edit_Book() {
                             />
                         </div>
                         <p></p>
-                        <button className="btn-add-book" onClick={addBook}>Add Book</button>
+                        <Link to= {'/Manage_book'}>
+                            <button className="btn-add-book" onClick={Updatebook}>Update Book</button>
+                        </Link>
+                        
                         <p></p>
                     </form>
                 </div>

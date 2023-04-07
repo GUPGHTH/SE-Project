@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Axios from 'axios'
 import Book_home from './Component/Book_home';
 import Navbar from './Component/Navbar.js';
@@ -10,6 +10,10 @@ import Layout from './Component/Layout';
 import Add_book from './Component/Add_book';
 import Manage_book from './Component/Management_book';
 import Edit_Book from './Component/Edit_book';
+import See_detail from './Component/See_detail';
+import Login from './Component/Login';
+import Login_state from './Component/Login_state';
+import Sign_up from'./Component/Sign_up';
 import {
   BrowserRouter,
   Switch,
@@ -17,10 +21,17 @@ import {
   Routes,
   Redirect,
 } from "react-router-dom";
+import Sing_up from './Component/Login';
 
 
 
 function App() {
+
+  
+
+
+
+  
   return (
     
     <BrowserRouter>
@@ -31,6 +42,10 @@ function App() {
           <Route path="Add_book" element={<Add_book/>} />
           <Route path="Manage_book" element={<Manage_book/>} />
           <Route path="Edit_book/:b_ID" element={<Edit_Book/>}></Route>
+          <Route path="See_detail/:b_ID" element={<See_detail/>}></Route>
+          <Route path="login" element={<Login/>}></Route>
+          <Route path="Login_state" element={<Login_state/>}></Route>
+          <Route path="Sign_up" element={<Sign_up/>}></Route>
 
           
         </Route>
