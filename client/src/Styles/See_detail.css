@@ -1,0 +1,10 @@
+.body_detail{
+    grid-template-columns: repeat(2, 1fr);
+}
+.See_detail{
+    border : solid red;
+    grid-template-columns: repeat(2, 1fr);
+}
+.img_detail img{
+    width: 600px;
+}
