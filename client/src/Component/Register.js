@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import "../Styles/login.css";
 
-export default function Sign_up(){
+export default function Register(){
     return(
         <body>
         <div className="box" >

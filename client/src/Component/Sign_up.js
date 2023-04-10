@@ -3,6 +3,8 @@ import Axios from 'axios';
 import { useState } from 'react';
 import {  Link, useParams } from 'react-router-dom';
 import '../Styles/Sign.css'
+
+
 export default function Sign_up(){
     return(
         <body>
@@ -51,7 +53,7 @@ export default function Sign_up(){
 
             <Link to="/"><button > Sign up</button></Link>
 
-            <p class="message">Already register? <a href="Register.js">Login</a></p>
+            <p class="message">Already register? <a href="Login">Login</a></p>
         </div>
         </div>
         </body>

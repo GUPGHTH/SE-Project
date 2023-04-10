@@ -1,9 +1,12 @@
 import logo from './logo.svg';
+import * as React from 'react';
+
 import './App.css';
 import { useEffect, useState } from 'react';
 import Axios from 'axios'
-import Book_home from './Component/Book_home';
-import Navbar from './Component/Navbar';
+import Book_shelf from './Component/Book_shelf';
+import Navbar from './Component/Navbar.js';
+import Home from './Component/Home';
 import Layout from './Component/Layout';
 import Add_book from './Component/Add_book';
 import Manage_book from './Component/Management_book';
@@ -11,10 +14,9 @@ import Edit_Book from './Component/Edit_book';
 import See_detail from './Component/See_detail';
 import Login from './Component/Login';
 import Login_state from './Component/Login_state';
-import Register from './Component/Register';
+
 import Contact from './Component/Contact';
-
-
+import Register from './Component/Register';
 import {
   BrowserRouter,
   Switch,
@@ -22,14 +24,34 @@ import {
   Routes,
   Redirect,
 } from "react-router-dom";
+
+
+
+
 function App() {
 
+
+  const sessioncheck = () => {
+    if (sessionStorage.getItem("login_status") != "true" ){
+      sessionStorage.setItem("usernamelogin","null");
+      sessionStorage.setItem("login_status","false");
+      sessionStorage.setItem("role","null");
+    }
+
+  }
+
+  React.useEffect(() => {
+    sessioncheck();
+  },[]);
+
+  
   return (
     
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route path="Book_shelf" element={<Book_home/>} />
+          <Route index element={<Home/>} />
+          <Route path="Book_shelf" element={<Book_shelf/>} />
           <Route path="Add_book" element={<Add_book/>} />
           <Route path="Manage_book" element={<Manage_book/>} />
           <Route path="Edit_book/:b_ID" element={<Edit_Book/>}></Route>

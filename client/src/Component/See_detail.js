@@ -14,8 +14,11 @@ export default function See_detail(){
     const postBooklist = () => {
         console.log(b_ID)
         Axios.post('http://localhost:3001/Requst_book_somebook', { b_ID }).then((Response) => {
-            setbooklist(Response.data);
+            
+            setbooklist(Response.data[0]);
+            
             setbookQ(Response.data[0].Book_Quantity);
+            console.log(bookQ)
             
         });
         
@@ -26,17 +29,46 @@ export default function See_detail(){
 
     const addcart = () =>{
         Axios.post('http://localhost:3001/Requst_book_somebook',{
-            
         })
 
     }
 
+    // function increaseValue() {
+    //     var value = parseInt(document.getElementById('number').value, 10);
+    //     value = isNaN(value) ? 0 : value;
+    //     value++;
+    //     document.getElementById('number').value = value;
+    //   }
+      
+    //   function decreaseValue() {
+    //     var value = parseInt(document.getElementById('number').value, 10);
+    //     value = isNaN(value) ? 0 : value;
+    //     value < 1 ? value = 1 : '';
+    //     value--; 
+    //     document.getElementById('number').value = value;
+    //   }
+
     const check =() => {
         if (bookQ > 0){
+
             
-            return(
-                <Link to={'Book_shelf'}><button className='bt-buy' onClick={addcart}>สั่งซื้อ <ImCart/></button></Link>
-            );
+            if (sessionStorage.getItem("login_status") == "true"){
+                return(
+                    <div>
+                        <div class='valueform'>
+                            <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
+                            <input type="number" id="number" value="0" />
+                            <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
+                        </div>
+                    <Link to={'/Book_shelf'}><button className='bt-buy' onClick={addcart}>สั่งซื้อ <ImCart/></button></Link>
+                    </div>
+                );
+            }else {
+                return(
+                    <Link to={'/login'}><button className='bt-buy' onClick={addcart}>สั่งซื้อ <ImCart/></button></Link>
+                );
+            }
+            
         }else{
             return(
                 <p>Out of stock</p>
@@ -46,7 +78,6 @@ export default function See_detail(){
 
 
     return(
-
         <body class="See_detali">
         <div class="content_detali">
 
@@ -55,11 +86,12 @@ export default function See_detail(){
             </div>
             
             <div class="text_detali">
-                <h1 >รายละเอียดหนังสือ</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione dolores voluptatibus, consequatur natus sunt asperiores deserunt nesciunt qui ut est exercitationem, voluptas fugit dolor necessitatibus, iure adipisci tenetur! Modi, asperiores!</p>
+                <h1 >{booklist.Book_Name}</h1>
+                <p>{booklist.Book_Detail}</p>
                 <br></br>
-                <h1>ราคา : 50 ฿</h1>
-                
+                <h1>ราคา : {booklist.Book_Price} THB</h1>
+                {check()}
+
             </div>              
         </div> 
 

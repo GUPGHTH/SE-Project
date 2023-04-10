@@ -2,15 +2,30 @@ import * as React from 'react';
 import Axios from 'axios';
 import { useState } from 'react';
 import { Link ,useParams} from 'react-router-dom';
-
-
+import '../Styles/Contact.css';
+import { FaFacebookSquare } from "react-icons/fa";
+import {FaInstagramSquare} from "react-icons/fa";
+import {FaLine} from "react-icons/fa";
 export default function Contact() {
     return (
-       
-        // https://drive.google.com/file/d/1vfhX_wzvaPiZMV591R5qx2_oZSOE1sgx/view?usp=share_link
-        //<img src="https://drive.google.com/uc?export=view&id=" alt=""></img> ใช้
-        <img src="https://drive.google.com/uc?export=view&id=1vfhX_wzvaPiZMV591R5qx2_oZSOE1sgx" alt=""></img>
-        
-                
+        <div class="headerbg">
+        <div class="container">
+            <div class="information">
+                <a  href="#"><FaFacebookSquare/>ชื่อร้าน</a> 
+                <br/>
+                <a  href="#"><FaInstagramSquare/>ชื่อร้าน</a>
+                <br/>
+                <a  href="#"><FaLine/>ชื่อร้าน</a>
+            </div>
+
+            <div class="QR_code">
+              <img 
+                  src="https://drive.google.com/uc?export=view&id=1J0RVrMiGMFOcLVT_oqDMQGFl8qHi9gop"
+                  alt=""
+                  >
+              </img>   
+            </div>              
+        </div> 
+      </div> 
     );
 }
