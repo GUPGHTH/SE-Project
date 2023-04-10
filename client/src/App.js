@@ -14,9 +14,12 @@ import Edit_Book from './Component/Edit_book';
 import See_detail from './Component/See_detail';
 import Login from './Component/Login';
 import Login_state from './Component/Login_state';
+import Register_fail from './Component/Reg_fail';
+import Register_suc from './Component/Reg_suc';
 
 import Contact from './Component/Contact';
 import Register from './Component/Register';
+import Cart from './Component/Cart';
 import {
   BrowserRouter,
   Switch,
@@ -60,6 +63,9 @@ function App() {
           <Route path="Login_state" element={<Login_state/>}></Route>
           <Route path="Register" element={<Register/>}></Route>
           <Route path="Contact" element={<Contact/>}></Route>
+          <Route path="Reg_f" element={<Register_fail/>}></Route>
+          <Route path="Reg_s" element={<Register_suc/>}></Route>
+          <Route path="Cart" element={<Cart/>}></Route>
           
         </Route>
       </Routes>

@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import * as React from 'react';
 import { FaBars, FaTimes } from "react-icons/fa";
 import "../Styles/navbar.css";
 import { FaSearch } from "react-icons/fa";
@@ -9,6 +10,22 @@ function Navbar() {
 			"responsive_nav"
 		);
 	};
+
+	const show_login = () =>{
+		if (sessionStorage.getItem("login_status") == "true"){
+			return(
+				<a href="/">{sessionStorage.getItem("usernamelogin")}</a> 
+
+			);
+		}
+		else{
+			return(
+				<a href="/login">เข้าสู่ระบบ</a> 
+			);
+		}
+	}
+
+	
 	
 	return (
 		<header>
@@ -16,10 +33,10 @@ function Navbar() {
 			
 			<nav ref={navRef}>
 				<a href="/Book_shelf">หนังสือ</a>
-				<a href="/#">เกี่ยวกับ</a>
 				<a href="/Contact">ติดต่อ</a>
 				<a href="/#">การสั่งซื้อ</a> 
-				<a href="/login">เข้าสู่ระบบ</a> 
+				<a href="/#">ตะกร้าสินค้า</a>
+				{show_login()}
 				
 				<button
 					className="nav-btn nav-close-btn"
