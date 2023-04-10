@@ -1,18 +1,37 @@
 import { useRef } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import "../Styles/navbar.css";
-import { Fa500Px } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
 function Navbar() {
+	const navRef = useRef();
+	const showNavbar = () => {
+		navRef.current.classList.toggle(
+			"responsive_nav"
+		);
+	};
 	
 	return (
 		<header>
-			<nav >
-				<a href="/Book_shelf"><Fa500Px/></a>
+			<h1> SanookkidSanookarn</h1>
+			
+			<nav ref={navRef}>
+				<a href="/Book_shelf">หนังสือ</a>
 				<a href="/#">เกี่ยวกับ</a>
 				<a href="/#">ติดต่อ</a>
 				<a href="/#">การสั่งซื้อ</a> 
 				<a href="/login">เข้าสู่ระบบ</a> 
+				
+				<button
+					className="nav-btn nav-close-btn"
+					onClick={showNavbar}>
+					<FaTimes />
+				</button>
 			</nav>
+			<button
+				className="nav-btn"
+				onClick={showNavbar}>
+				<FaBars />
+			</button>
 		</header>
 	);
 }
