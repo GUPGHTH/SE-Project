@@ -54,7 +54,6 @@ export default function Add_book() {
 
     return (
         <div><h2 className='Add_book'>Add book to data base</h2>
-
         <div className='add_book_gridboox'>
           <div className='add_book_item'>
               <form action=''>

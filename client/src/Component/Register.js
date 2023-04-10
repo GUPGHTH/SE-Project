@@ -1,17 +1,15 @@
-import * as React from 'react';
-import Axios from 'axios';
-import { useState } from 'react';
-import {  Link, useParams } from 'react-router-dom';
-import '../Styles/Sign.css'
+import * as React from "react";
+import Axios from "axios";
+import { useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import "../Styles/login.css";
+
 export default function Sign_up(){
-
-
     return(
         <body>
-        <div >
-         <div class="form-sign">
+        <div className="box" >
+         <div class="form">
          <form ></form>
-        
             <div class='topic'>SIGN UP</div>
             <div className='text'>First Name : </div>
                       <input
@@ -53,7 +51,7 @@ export default function Sign_up(){
 
             <Link to="/"><button > Sign up</button></Link>
 
-            <p class="message">Already register? <a href="Register.js">Login</a></p>
+            <p class="message">Already register? <a href="login">Login</a></p>
         </div>
         </div>
         </body>

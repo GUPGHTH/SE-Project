@@ -1,6 +1,4 @@
 import * as React from 'react';
-
-
 import Axios from 'axios';
 import { useState } from 'react';
 import { Link ,useParams} from 'react-router-dom';
@@ -18,31 +16,30 @@ export default function Book_home() {
     }
     getBooklist();
 
-    
-
+  
   return (
-    <section className="books" >
+    <body className='Book_home'>
+      <div className='promosion'>
+                           <img src="https://images.unsplash.com/photo-1592496431122-2349e0fbc666?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1212&q=80" alt=""></img></div>
+    <div className="books" >
     {booklist.map((val, key) =>{
         return (
-           <body>
-                <div>
-              <div className='books-sell'>
+           <div className='books-sell'>
                            <img src="https://images.unsplash.com/photo-1592496431122-2349e0fbc666?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1212&q=80" alt=""></img>
                                        <p>Book ID:{val.Book_ID}</p>
                                        <p>{val.Book_Name}</p>
                                        <p>{val.Book_Type}&nbsp;&nbsp;{val.Book_Price}$</p>
                                        <Link to={"/See_detail/"+val.Book_ID}>
-
                                        <button className="button-28" >See detail</button>
-                                       </Link>
-                                       
+                                       </Link> 
                                        </div>
-              </div>
-           </body>
+              
+           
              
             
         )
     })}
-</section>
+</div>
+</body>
   );
 }

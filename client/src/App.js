@@ -28,10 +28,6 @@ import Sing_up from './Component/Login';
 function App() {
 
   
-
-
-
-  
   return (
     
     <BrowserRouter>

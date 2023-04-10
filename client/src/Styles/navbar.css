@@ -1,89 +1,6 @@
-*{
-    margin: 0px 0px;
-    padding: 0px 0px;
-}
-.Add_book{ 
-    text-align: center;
-    margin:30px 0px;
-    font-weight: 900;
-}
-.add_book_gridboox{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.add_book_item{
-    margin-top: 0px;
-    font-size: 18px;
-    width: 500px;
-    padding: 3px 20px;
-    border-radius: 3%;
-    /* background-color: #bebebe; */
-    border: 1px solid #bebebe;
-}
-.input_add_book {
-  font-size: 18px;
-  width: 100%;
-  padding: 8px 1px;
-  margin: 5px 0;
-  box-sizing: border-box;
-  border: 2px solid #bebebe;
-  border-radius: 3px;
-
-}
-.form-label{
-    /*  */
-    font-weight: 600;
-}
-.name-input{
-    margin-top: 1px;
-}
-
-/* CSS */
-.btn-add-book {
-  appearance: button;
-  background-color: #1652F0;
-  border: 1px solid #1652F0;
-  border-radius: 4px;
-  box-sizing: border-box;
-  color: #FFFFFF;
-  cursor: pointer;
-  font-family: Graphik,-apple-system,system-ui,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
-  font-size: 14px;
-  line-height: 1.15;
-  overflow: visible;
-  padding: 12px 16px;
-  position: relative;
-  text-align: center;
-  text-transform: none;
-  transition: all 80ms ease-in-out;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  width: fit-content;
-}
-
-.btn-add-book:disabled {
-  opacity: .5;
-}
-
-.btn-add-book:focus {
-  outline: 0;
-}
-
-.btn-add-book:hover {
-  background-color: #0A46E4;
-  border-color: #0A46E4;
-}
-
-.btn-add-book:active {
-  background-color: #0039D7;
-  border-color: #0039D7;
-}
-
 @import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;700&display=swap");
 
-* {
+*{
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
@@ -101,17 +18,14 @@ header {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	height: 60px;
-	padding: 0 2rem;
+	height: 8vh;
+	padding: 0 1rem;
 	background-color: var(--mainColor);
 	color: var(--textColor);
+	
+	
 }
-.logo{
-	font-size: 20px;
-	width: auto;    
-	color: var(--textColor); 
-	padding: 0 2%;   
-}
+
 nav a {
 	margin: 0 1rem;
 	color: var(--textColor);
@@ -119,11 +33,11 @@ nav a {
 }
 
 nav a:hover {
-	color: var(--secondaryColor);
+	text-decoration: underline;
 }
 
 header .nav-btn {
-	padding: 5px;
+	padding: 1px;
 	cursor: pointer;
 	background: transparent;
 	border: none;
@@ -160,16 +74,15 @@ nav{
 .search{
 	margin-left: 15%;
 }
-@media only screen and (max-width: 1024px) {
-	.button-28 {
+@media (max-width: 1440px) {
+	/* .button-28 {
 		display: none;
-	  }
+	  } */
 	header .nav-btn {
 		visibility: visible;
 		opacity: 1;
 	}
 	header nav {
-		display: grid;
 		position: fixed;
 		top: -100vh;
 		left: 0;
@@ -182,12 +95,15 @@ nav{
 		gap: 1.5rem;
 		background-color: var(--mainColor);
 		transition: 1s;
-	}
+	} 
+
+	
 
 	header .responsive_nav {
-		transform: translateY(100vh);
+		transform: translateY(100vh);		
 	}
-
+	
+	
 	nav .nav-close-btn {
 		position: absolute;
 		top: 2rem;
@@ -197,4 +113,32 @@ nav{
 	nav a {
 		font-size: 1.5rem;
 	}
+}
+
+@media (max-width: 375px) {
+	
+	header .nav-btn {
+		visibility: visible;
+		opacity: 1;
+		
+	}
+	header nav {
+		top: -150vh;
+		left: 0;
+		height: 667px;
+		width: 375px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 1.5rem;
+		background-color: var(--mainColor);
+		transition: 1s;
+	} 
+
+	header .responsive_nav {
+		transform: translateY(150vh);
+		
+	}
+
 }
