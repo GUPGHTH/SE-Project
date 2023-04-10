@@ -7,15 +7,20 @@ import "../Styles/login.css";
 export default function Sing_up() {
   const [username, setusername] = useState("");
   const [password, setpassword] = useState("");
+  
 
-  const set_session_login_true = () => {
+  const set_session_login_true = (r) => {
     //saving username to session storage
     sessionStorage.setItem("usernamelogin", username);
     sessionStorage.setItem("login_status", "true");
 
+    sessionStorage.setItem("role",r)
+
     setTimeout(() => {
-      sessionStorage.removeItem("name");
-      sessionStorage.removeItem("login_status");
+      sessionStorage.setItem("usernamelogin","null");
+      sessionStorage.setItem("login_status","false");
+      sessionStorage.setItem("role","null");
+
     }, 7200000);
   };
 
@@ -24,11 +29,15 @@ export default function Sing_up() {
       username: username,
       password: password,
     }).then((Response) => {
-      if (Response.data == "succes") {
-        set_session_login_true();
+      if (Response.data[0] == "succes") {
+        
+        
+        
+        set_session_login_true(Response.data[1][0].role);
       } else {
-        sessionStorage.removeItem("name");
-        sessionStorage.removeItem("login_status");
+        sessionStorage.setItem("usernamelogin","null");
+      sessionStorage.setItem("login_status","false");
+      sessionStorage.setItem("role","null");
       }
     }),
   ];

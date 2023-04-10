@@ -1,4 +1,5 @@
 import logo from './logo.svg';
+import * as React from 'react';
 
 import './App.css';
 import { useEffect, useState } from 'react';
@@ -27,6 +28,20 @@ import Sing_up from './Component/Login';
 
 function App() {
 
+
+  const sessioncheck = () => {
+    if (sessionStorage.getItem("login_status") != "true" ){
+      sessionStorage.setItem("usernamelogin","null");
+      sessionStorage.setItem("login_status","false");
+      sessionStorage.setItem("role","null");
+    }
+
+  }
+
+  React.useEffect(() => {
+    sessioncheck();
+  },[]);
+
   
   return (
     
@@ -42,7 +57,6 @@ function App() {
           <Route path="login" element={<Login/>}></Route>
           <Route path="Login_state" element={<Login_state/>}></Route>
           <Route path="Sign_up" element={<Sign_up/>}></Route>
-
           
         </Route>
       </Routes>

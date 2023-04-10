@@ -35,13 +35,13 @@ app.post('/Post_select_book',(req,res) => {
 app.post('/requst_login',(req,res) => {
     const username = req.body.username;
     const password = req.body.password;
-    db.query("SELECT * FROM `customer_infomation` WHERE `Username` = (?) AND `password` = (?)",[username,password],(err,result) =>{
+    db.query("SELECT `role` FROM `customer_infomation` WHERE `Username` = (?) AND `password` = (?)",[username,password],(err,result) =>{
         if(err){
             console.log(err)
             res.send("fail");
         }else if(result != "" && result != []){
-            console.log(result)
-            res.send("succes")
+            
+            res.send(["succes",result])
         }else{
             res.send("fail")
         }
