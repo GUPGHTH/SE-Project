@@ -4,8 +4,6 @@ import { useState } from 'react';
 import {  Link, useParams } from 'react-router-dom';
 import '../Styles/Sign.css'
 export default function Sign_up(){
-
-
     return(
         <body>
         <div >

@@ -35,24 +35,16 @@ body{
 
 
 .button-28 {
-  border:  1px solid #1A1A1A;
-  border-radius: 8px;
-  box-sizing: border-box;
-  color: #000000;
-  cursor: pointer;
-  display: inline-block;
-  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-  font-size: 20px;
-  line-height: normal;
-  margin: 5px 5px;
-  min-height: 60px;
-  padding: 15px 32px;
-  text-align: center;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  width: auto;
-  /* will-change: transform; */
+margin-top: 5%;
+ padding: 17px 40px;
+ border-radius: 50px;
+ border: 1px solid #bababa;
+ background-color: white;
+ box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+ letter-spacing: 1.5px;
+ text-transform: uppercase;
+ font-size: 15px;
+ transition: all .5s ease;
 }
 
 .group {
@@ -117,7 +109,7 @@ body{
 
 .button-28:hover {
   color: #fff;
-  background-color: #77DD77;
+  background-color: #6EC4DB;
   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
   transform: translateY(-2px);
 } 

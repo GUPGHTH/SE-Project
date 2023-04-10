@@ -17,7 +17,6 @@ align-items: center;
   height: auto;
 }
 .form input {
-  
   outline: 0;
   background: #f2f2f2;
   width: 100%;
@@ -25,19 +24,19 @@ align-items: center;
   margin: 0 0 15px;
   padding: 15px;
   box-sizing: border-box;
-  font-size: 14px;
+  font-size: 20px;
   border-radius:15px;
   
 }
 .form button {
   text-transform: uppercase;
   outline: 0;
-  background: #3324be;
+  background: #6EC4DB;
   width: 100%;
   border: 0;
   padding: 15px;
   color: #FFFFFF;
-  font-size: 14px;
+  font-size: 20px;
   border-radius:15px;
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
@@ -49,7 +48,7 @@ align-items: center;
 .form .message {
   margin: 15px 0 0;
   color: #b3b3b3;
-  font-size: 12px;
+  font-size: 15px;
   text-align: center;
 }
 .form .message a {
@@ -57,13 +56,9 @@ align-items: center;
   text-decoration: none;
 }
 .topic{
-  font-size: 28px;
-  color: #3324be;
+  font-size: 30px;
+  color: #6EC4DB;
   letter-spacing: 2px;
   text-align: center;
   margin-bottom: 8%;
-}
-@media  (max-width:600px){
-  
-  
 }

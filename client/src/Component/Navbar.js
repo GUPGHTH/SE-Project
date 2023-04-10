@@ -12,12 +12,12 @@ function Navbar() {
 	
 	return (
 		<header>
-			<h1> SanookkidSanookarn</h1>
+			<h1 className="System_Name"> SanookkidSanookarn</h1>
 			
 			<nav ref={navRef}>
 				<a href="/Book_shelf">หนังสือ</a>
 				<a href="/#">เกี่ยวกับ</a>
-				<a href="/#">ติดต่อ</a>
+				<a href="/Contact">ติดต่อ</a>
 				<a href="/#">การสั่งซื้อ</a> 
 				<a href="/login">เข้าสู่ระบบ</a> 
 				

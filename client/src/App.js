@@ -12,6 +12,9 @@ import See_detail from './Component/See_detail';
 import Login from './Component/Login';
 import Login_state from './Component/Login_state';
 import Register from './Component/Register';
+import Contact from './Component/Contact';
+
+
 import {
   BrowserRouter,
   Switch,
@@ -34,6 +37,7 @@ function App() {
           <Route path="login" element={<Login/>}></Route>
           <Route path="Login_state" element={<Login_state/>}></Route>
           <Route path="Register" element={<Register/>}></Route>
+          <Route path="Contact" element={<Contact/>}></Route>
           
         </Route>
       </Routes>
