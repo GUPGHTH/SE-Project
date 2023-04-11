@@ -24,6 +24,7 @@ body{
   font-weight: 400;
 }
 .books-sell img{
+  height: 270px;
   width: 250px;
   margin-bottom: 20px;
 }

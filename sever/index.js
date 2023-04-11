@@ -149,6 +149,119 @@ app.post('/requst_login',(req,res) => {
 
 })
 
+app.post('/Order_manange',(req,res)=>{
+    db.query("SELECT * FROM `order` WHERE `Order_Status` = (?)",["ปรกติ"],(err,result) =>{
+        if(err){
+            console.log(err)
+        }else{
+            
+            res.send(result)
+        }
+    })
+})
+
+app.post('/Cancel_order',(req,res)=>{
+    const order = req.body.order
+    db.query("UPDATE `order` SET `Order_Status`=(?) WHERE `Order_ID` = (?)",["ยกเลิก",order],(err,result) =>{
+        if(err){
+            console.log(err)
+        }else{
+            res.send(result)
+        }
+    })
+})
+
+app.post('/Set_slip_true',(req,res)=>{
+    const order = req.body.order
+    db.query("UPDATE `order` SET `Slip_status`=(?) WHERE `Order_ID` = (?)",["ยืนยัน",order],(err,result) =>{
+        if(err){
+            console.log(err)
+        }else{
+            
+            res.send(result)
+        }
+    })
+})
+
+app.post('/Set_delivery',(req,res)=>{
+    const Order_ID = req.body.Order_ID
+    const deliid = req.body.deliid
+    db.query("UPDATE `order` SET `Derivery_ID`=(?) WHERE `Order_ID` = (?)",[deliid,Order_ID],(err,result) =>{
+        if(err){
+            console.log(err)
+        }else{
+            
+            res.send(result)
+        }
+    })
+})
+
+
+app.post('/Requst_order',(req,res) =>{
+    const Order_ID = req.body.Order_ID
+    db.query("SELECT * FROM `order` WHERE `Order_ID` = (?)",[Order_ID],(err,result) =>{
+        if(err){
+            console.log(err)
+        }else{
+            
+            res.send(result)
+        }
+    })
+})
+
+app.post('/delet_bad_order',(req,res) =>{
+    const Phone = req.body.Phone
+    db.query("DELETE FROM `order` WHERE `Phone` = (?)AND `Order_Status` = (?)",[Phone,"ยังไม่สมบูรณ์"],(err,result) =>{
+        if(err){
+            console.log(err)
+        }else{
+            
+            res.send(result)
+        }
+    })
+})
+
+app.post('/add_order',(req,res) =>{
+    const Phone = req.body.Phone
+    var tmp = ""
+    db.query("INSERT INTO `order`(`Order_ID`, `Phone`, `Derivery_ID`, `Slip_status`, `Order_Status`, `Destination`) VALUES(?,?,?,?,?,?)",["",Phone,"รอการจัดส่ง","ไม่ยืนยัน","ยังไม่สมบูรณ์","null"],(err,result) =>{
+        if(err){
+            console.log(err)
+        }else{
+            db.query("SELECT * FROM `order` WHERE `Phone` = (?) AND `Order_Status` = (?)",[Phone,"ยังไม่สมบูรณ์"],(err,result2)=>{
+                if(err){
+                    console.log(err)
+                }else{
+                    res.send(result2)
+                }
+            })
+            
+        }
+    })
+})
+
+
+//confirm_order_by_cus
+
+app.post('/confirm_order_by_cus',(req,res) =>{
+    const order_id = req.body.order_id
+    const Des = req.body.Des
+    const Phone = req.body.Phone
+    db.query("UPDATE `order` SET `Order_Status`=(?),`Destination`=(?) WHERE `Order_ID` = (?)",["ปรกติ",Des,order_id],(err,result) =>{
+        if(err){
+            console.log(err)
+        }else{
+            res.send(result)
+            db.query("UPDATE `cart` SET `bill_ID`= (?) WHERE `Phone` = (?) AND `bill_ID` = (?)",[order_id,Phone,"null"],(err,result) =>{
+                if(err){
+                    console.log(err)
+                }
+            })
+            
+        }
+    })
+})
+
 app.post('/Register',(req,res) => {
     const Fist_name = req.body.Fist_name;
     const Last_name = req.body.Last_name;
@@ -157,8 +270,8 @@ app.post('/Register',(req,res) => {
     
 
     db.query(
-        "INSERT INTO `customer_infomation`(`Phone`, `password`, `Fist_name`, `Last_name`, `key_id`, `Role`) VALUES(?,?,?,?,?,?)",
-        [Phone,password,Fist_name,Last_name,1,"custumer"],
+        "INSERT INTO `customer_infomation`(`Phone`, `password`, `Fist_name`, `Last_name`, `Role`) VALUES(?,?,?,?,?)",
+        [Phone,password,Fist_name,Last_name,"custumer"],
         (err,result) =>{
             if(err){
                 //console.log(err);

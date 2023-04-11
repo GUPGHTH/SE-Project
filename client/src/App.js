@@ -23,6 +23,8 @@ import Cart from './Component/Cart';
 import Order_history from './Component/Order_history';
 import See_order_detail from './Component/See_order_detail';
 import Userpage from './Component/Userpage';
+import Manage_order from './Component/Manage_order';
+import Edit_delivery_ID from './Component/Edit_delivery_ID';
 import {
   BrowserRouter,
   Switch,
@@ -74,6 +76,8 @@ function App() {
           <Route path='See_order_detail/:Order_ID' element={<See_order_detail/>}></Route>
           <Route path='Userpage' element={<Userpage/>}></Route>
           <Route path='Payment' element={<Payment/>}></Route>
+          <Route path='Manage_order' element={<Manage_order/>}></Route>
+          <Route path='Edit_delivery_ID/:Order_ID' element={<Edit_delivery_ID/>}></Route>
           
           
           

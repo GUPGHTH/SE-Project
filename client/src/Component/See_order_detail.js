@@ -7,6 +7,7 @@ import "../Styles/Cart.css";
 export default function See_order_detail() {
     const { Order_ID } = useParams();
     const [booklist,setbooklist] = useState([]);
+    const [destination,setdestination] = useState("");
     const Phone =sessionStorage.getItem("Phone")
     const [total,settotal] = useState(0);
     
@@ -17,6 +18,7 @@ export default function See_order_detail() {
         }).then((Response) => {
             setbooklist(Response.data);
             sum_total()
+            Requst_Destination()
         });
     }
 
@@ -30,7 +32,13 @@ export default function See_order_detail() {
            
         )
     }
-
+    const Requst_Destination = () =>{
+        Axios.post('http://localhost:3001/Requst_order',{
+            Order_ID : Order_ID
+        }).then((Response) => {
+            setdestination(Response.data[0].Destination)
+        });
+    }
 
     getBooklist();
     return (
@@ -89,11 +97,15 @@ export default function See_order_detail() {
 
 
         )})}
+        <div className='Cart-container-des'>
+            <p>{destination}</p>
+        </div>
+        
          <div className='Cart-container'>
                              
 
             <div className='item_bookid'>
-            <p>Total</p>
+            <p>ยอดรวม</p>
             </div>
             <div className='item_bookid'>
             <p></p>

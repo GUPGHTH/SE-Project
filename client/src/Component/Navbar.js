@@ -13,7 +13,27 @@ function Navbar() {
 
 	const show_login = () =>{
 		if (sessionStorage.getItem("login_status") == "true"){
-			return(
+
+			if(sessionStorage.getItem("role") == "admin"){
+				return(
+				
+					<nav ref={navRef}>
+					<a href="/Manage_book">จัดการหนังสือ</a>
+					<a href="/Add_book">เพิ่มหนังสือ</a>
+					<a href="/Manage_order">จัดการออเดอร์</a>
+					
+					<a href="/Userpage">{sessionStorage.getItem("usernamelogin")}</a> 
+					
+					<button
+						className="nav-btn nav-close-btn"
+						onClick={showNavbar}>
+						<FaTimes />
+					</button>
+				</nav>
+	
+				);
+			}else{
+				return(
 				
 				<nav ref={navRef}>
 				<a href="/Book_shelf">หนังสือ</a>
@@ -30,6 +50,9 @@ function Navbar() {
 			</nav>
 
 			);
+			}
+
+			
 		}
 		else{
 			return(

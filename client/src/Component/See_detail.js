@@ -131,7 +131,7 @@ export default function See_detail(){
         <div class="content_detali">
 
             <div class="img_detali">
-                 <img src="https://images.unsplash.com/photo-1592496431122-2349e0fbc666?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1212&q=80" alt=""></img>
+                 <img src={"https://drive.google.com/uc?export=view&id="+booklist.Book_Pic} alt=""></img>
             </div>
             
             <div class="text_detali">

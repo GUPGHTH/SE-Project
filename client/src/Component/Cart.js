@@ -8,6 +8,7 @@ export default function Cart() {
     const [booklist,setbooklist] = useState([]);
     const [total,settotal] = useState(0);
     const Phone =sessionStorage.getItem("Phone")
+    sessionStorage.setItem("order_temp",0)
     
 
     const getBooklist = () =>{
@@ -42,6 +43,21 @@ export default function Cart() {
            
         )
     }
+
+    const add_order = () => {
+        Axios.post('http://localhost:3001/delet_bad_order',{
+            Phone : Phone
+        }).then()
+        Axios.post('http://localhost:3001/add_order',{
+            Phone : Phone
+        }).then((Response) =>{
+            console.log(Response.data[0].Order_ID)
+            sessionStorage.setItem("order_temp",Response.data[0].Order_ID)
+        }
+        )
+    }
+
+    
     
 
     return (
@@ -74,7 +90,7 @@ export default function Cart() {
             return (
             <div className='Cart-container'>
                             <div className='item_img'>
-            <img src="https://images.unsplash.com/photo-1592496431122-2349e0fbc666?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1212&q=80" alt=""></img>
+            <img src={"https://drive.google.com/uc?export=view&id="+val.Book_Pic} alt=""></img>
             </div>
 
             <div className='item_bookid'>
@@ -123,7 +139,7 @@ export default function Cart() {
             </div>
 
             <div className='item_button'>
-            <Link to={'/Payment'}><button className="button-payment" >Payment</button></Link>
+            <Link to={'/Payment'}><button className="button-payment" onClick={add_order}>Payment</button></Link>
             
             </div>
                 </div>

@@ -11,6 +11,16 @@ p{
 
 
 }
+.Cart-container-des
+{   
+  padding: 10px 10px;
+  margin: 25px 25px;
+  display: grid;
+  
+  border: solid #000;
+
+
+}
 .Cart-container-top
 {   
   padding: 1px 10px;

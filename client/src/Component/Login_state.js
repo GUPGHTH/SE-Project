@@ -5,6 +5,7 @@ import {  Link, useParams,useNavigate } from 'react-router-dom';
 
 export default function Login_state(){
     const navigate = useNavigate();
+    
 
     const getuserlogin = () => {
        
@@ -24,8 +25,13 @@ export default function Login_state(){
           <form className="loginbox"></form>
           <div className="topic">LOGIN SUCCES</div>
            <button onClick={()=>{
+            if (sessionStorage.getItem("role") == "admin"){
+                navigate('/Manage_book', { replace: true });
+            }else{
+              navigate('/Book_shelf', { replace: true });
+            }
             
-            navigate('/#', { replace: true });
+            
             window.location.reload(false);
             
                 }}>Continue</button>

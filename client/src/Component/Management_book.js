@@ -38,8 +38,8 @@ export default function Manage_book() {
             return (
 
                  <div className="grid-Box">
-                     <div className='grid-item'>
-                        <center><img src="../bg.png" className='imgbox' /></center>
+                     <div className='books-sell'>
+                        <center><img src={"https://drive.google.com/uc?export=view&id="+val.Book_Pic} className='books-sell' /></center>
                          <div className='content'>
                             <br/>
                              <p>Book ID:{val.Book_ID}</p>
