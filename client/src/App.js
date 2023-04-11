@@ -20,6 +20,8 @@ import Contact from './Component/Contact';
 import Register from './Component/Register';
 import Cart from './Component/Cart';
 import Payment from './Component/Payment'
+import Userlogin from './Component/Userlogin';
+
 import {
   BrowserRouter,
   Switch,
@@ -68,6 +70,8 @@ function App() {
           <Route path="Reg_s" element={<Register_suc/>}></Route>
           <Route path="Cart" element={<Cart/>}></Route>
           <Route path="Payment" element={<Payment/>}></Route>
+          <Route path="Userlogin" element={<Userlogin/>}></Route>
+          
           
         </Route>
       </Routes>

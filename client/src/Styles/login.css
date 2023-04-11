@@ -3,8 +3,8 @@
   height: 92vh;
   background-color: rgb(186, 234, 255);
   display: flex;
-justify-content: center;
-align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 .form {
   background: #FFFFFF;
