@@ -1,9 +1,11 @@
 import * as React from 'react';
 import Axios from 'axios';
 import { useState } from 'react';
-import {  Link, useParams } from 'react-router-dom';
+import {  Link, useParams,useNavigate } from 'react-router-dom';
 
 export default function Login_state(){
+    const navigate = useNavigate();
+
     const getuserlogin = () => {
        
         return sessionStorage.getItem("usernamelogin");
@@ -15,23 +17,46 @@ export default function Login_state(){
       };
 
       const check_login = () =>{
-
         if(getloginstatus() == "true"){
             return(
-                <div>
-                    <h2>LOGIN SUCCES</h2>
-                    <Link to={"/Book_shelf"}><button>Continious</button></Link>
-                </div>
+                <body className="box">
+             <div class="form">
+          <form className="loginbox"></form>
+          <div className="topic">LOGIN SUCCES</div>
+           <button onClick={()=>{
+            
+            navigate('/#', { replace: true });
+            window.location.reload(false);
+            
+                }}>Continue</button>
+        </div> 
+        </body>
 
             );
         }else{
             return(
-                <div>
+               
 
-                    <h2>LOGIN FAIL</h2>
-                    <Link to={"/login"}><button>Try again</button></Link>
-                    <Link to={"/Register"}><button>Sign up</button> </Link>
-                </div>
+                    // <h2>LOGIN FAIL</h2>
+                     <body className="box">
+        <div class="form">
+          <form className="loginbox"></form>
+          <div className="topic">LOGIN FAIL</div>
+          
+         
+
+            <Link to={"/login"}><button>Try again</button></Link>
+            <br></br>
+            
+          <p class="message">
+            Not registered? <a href="Register">Create an account</a>
+          </p>
+        
+        </div> 
+        </body>
+                    // { <Link to={"/login"}><button>Try again</button></Link>
+                    // <Link to={"/Register"}><button>Sign up</button> </Link> }
+                
             );
         }
 

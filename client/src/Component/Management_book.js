@@ -48,7 +48,7 @@ export default function Manage_book() {
                          </div>
                           <Link to={'/Edit_book/'+val.Book_ID} >
                             
-                            <button className="button-28" >Edit Book</button>
+                            <button className="button-30" >Edit Book</button>
                             </Link> 
 
                             <Link to= {'/Delete_book/'+val.Book_ID}> 

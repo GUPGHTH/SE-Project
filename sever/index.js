@@ -26,16 +26,49 @@ app.get('/Requst_book',(req,res) => {
     });
 });
 
+app.post('/Add_to_cart',(req,res) => {
+    const Book_Id  = req.body.b_ID
+    const book_temp = req.body.book_temp
+    const Phone = req.body.Phone
+    const total = req.body.total
+
+    db.query("INSERT INTO `cart`(`id`, `cus_ID`, `product_ID`, `quantity`, `total`, `bill_ID`) VALUES (?,?,?,?,?,?)",[0,Phone,Book_Id,book_temp,total,"null"],(err,result) => {
+        if(err){
+            console.log(err)
+            res.send("fail");
+        }else if(result != "" && result != []){
+            
+            res.send(["succes",result])
+        }else{
+            res.send("fail")
+        }
+    })
+
+
+});
+
 app.post('/Post_select_book',(req,res) => {
     const Select_book_ID = req.body.b_ID;
     selectbook = Select_book_ID;
     console.log(selectbook);
 })
 
+app.post('/Requst_cart',(req,res) => {
+    const phone = req.body.Phone
+    db.query("SELECT * FROM book LEFT JOIN cart ON book.`Book_ID` = cart.`Book_ID` WHERE cart.`Phone` = (?) AND cart.`bill_ID` = (?) ",[phone,"null"],(err,result) =>{
+        if(err){
+            console.log(err)
+        }else {
+            res.send(result)
+        }
+    })
+
+})
+
 app.post('/requst_login',(req,res) => {
-    const username = req.body.username;
+    const phone = req.body.phone;
     const password = req.body.password;
-    db.query("SELECT `role` FROM `customer_infomation` WHERE `Username` = (?) AND `password` = (?)",[username,password],(err,result) =>{
+    db.query("SELECT * FROM `customer_infomation` WHERE `Phone` = (?) AND `password` = (?)",[phone,password],(err,result) =>{
         if(err){
             console.log(err)
             res.send("fail");
@@ -48,6 +81,29 @@ app.post('/requst_login',(req,res) => {
     })
 
 })
+
+app.post('/Register',(req,res) => {
+    const Fist_name = req.body.Fist_name;
+    const Last_name = req.body.Last_name;
+    const Phone = req.body.Phone;
+    const password = req.body.password;
+    
+
+    db.query(
+        "INSERT INTO `customer_infomation`(`Phone`, `password`, `Fist_name`, `Last_name`, `key_id`, `Role`) VALUES(?,?,?,?,?,?)",
+        [Phone,password,Fist_name,Last_name,1,"custumer"],
+        (err,result) =>{
+            if(err){
+                //console.log(err);
+                res.send("Error")
+            }else{
+                res.send("Values inserted");
+                //console.log("value add");
+            }
+        }
+    );
+});
+
 
 
 
