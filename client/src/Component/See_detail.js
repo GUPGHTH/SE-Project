@@ -74,8 +74,7 @@ export default function See_detail(){
             
             if (sessionStorage.getItem("login_status") == "true"){
                 return(
-                    <div> 
-                        <div class='valueform'>
+                    <div> <div class='valueform'>
                     <button class="value-button" id="decrease" onClick={decreaseValue}>-</button>
                     <input type="number" id="number" 
                     defaultValue={book_temp}
@@ -91,7 +90,7 @@ export default function See_detail(){
                         
                     }}  />
                     <button class="value-button" id="increase" onClick={increaseValue} >+</button>
-                        </div>
+                </div>
                     <Link to={'/Book_shelf'}><button className='bt-buy' onClick={addcart}>สั่งซื้อ <ImCart/></button></Link>
                     </div>
                 );

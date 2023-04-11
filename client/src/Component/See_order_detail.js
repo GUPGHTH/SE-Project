@@ -4,37 +4,25 @@ import { useState } from 'react';
 import { Link ,useParams} from 'react-router-dom';
 import "../Styles/Cart.css";
 
-export default function Cart() {
+export default function See_order_detail() {
+    const { Order_ID } = useParams();
     const [booklist,setbooklist] = useState([]);
-    const [total,settotal] = useState(0);
     const Phone =sessionStorage.getItem("Phone")
+    const [total,settotal] = useState(0);
     
 
     const getBooklist = () =>{
-        Axios.post('http://localhost:3001/Requst_cart',{
-            Phone : Phone
+        Axios.post('http://localhost:3001/History_Detail',{
+            Order_ID : Order_ID
         }).then((Response) => {
             setbooklist(Response.data);
-            sum_total();
+            sum_total()
         });
     }
 
-    React.useEffect(() => {
-        getBooklist();
-      },[]);
-    
-
-    const del_cart = (cart_id) =>{
-        Axios.post('http://localhost:3001/Delete_cart',{
-            cart_id : cart_id
-        }).then(
-            getBooklist()
-        )
-    }
-
     const sum_total = () => {
-        Axios.post('http://localhost:3001/Sum_total',{
-            Phone : Phone
+        Axios.post('http://localhost:3001/Sum_total_bill',{
+            Order_ID : Order_ID
         }).then((Response) =>{
             console.log(Response.data[0].totalprice)
             settotal(parseInt(Response.data[0].totalprice))
@@ -42,8 +30,9 @@ export default function Cart() {
            
         )
     }
-    
 
+
+    getBooklist();
     return (
         <div >
             <div >
@@ -94,13 +83,9 @@ export default function Cart() {
 
             <div className='item_button'>
 
-            <button className="button-delete" onClick={() => {
-                del_cart(val.id)
-            }}>Delete</button>
+            
             </div>
                 </div>
-
-
 
 
         )})}
@@ -119,12 +104,12 @@ export default function Cart() {
             </div>
 
             <div className='item_BookType'>
-                <p>{total}</p>
+                <p></p>
             </div>
 
             <div className='item_button'>
-            <Link to={'/Payment'}><button className="button-payment" >Payment</button></Link>
-            
+
+           <p>{total}</p>
             </div>
                 </div>
             </div>

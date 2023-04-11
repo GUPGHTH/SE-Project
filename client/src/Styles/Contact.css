@@ -1,18 +1,28 @@
 .headerbg{
-    margin-left: 7.5%;
-    margin-top: 6%;
-    /* background-color: #6EC4DB; */
+    /* margin-left: 7.5%;
+    margin-top: 30px;
     height: 400px;
     width: 80%;
+    background-color: #6EC4DB;
+    height: 100%;
+    padding: 100px; */
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #6EC4DB;
+    margin: 30px;
 }
+
 .container{
     display: grid;
     grid-gap: 20px;
-    height: 75%;
-    width: 75%;
+    height: 80%;
+    width: 100%;
     align-items: center;
     justify-items: center;
     justify-content: center;
+    
 }
 .information{
     color: rgb(0, 0, 0);
@@ -23,19 +33,24 @@
 }
 .information a{
     text-emphasis: none;
-    color: #3b3b3b;
-    background-color: #fff;
+    color: #ffffff;
+    
     padding: 0.5rem;
     text-decoration: none;
     font-size: 50px;
+    
 }
 .QR_code{
     width: auto;
     height: auto;
+    
 }
 .QR_code img {
+    padding: 50px ;
     width: 450px;
     height: 450px;
+    border-radius: 90px;
+    
 }
 /* @media (min-width: 1440px) {
     .container {grid-template-columns: repeat(2, 1fr); }

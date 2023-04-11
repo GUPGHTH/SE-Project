@@ -26,13 +26,41 @@ app.get('/Requst_book',(req,res) => {
     });
 });
 
+
+
+app.post('/History',(req,res) => {
+    const phone = req.body.Phone
+    db.query("SELECT * FROM `order` WHERE `Phone` = (?) ",[phone],(err,result) =>{
+        if(err){
+            console.log(err)
+        }else {
+            res.send(result)
+        }
+    })
+
+
+});
+
+app.post('/History_Detail',(req,res) => {
+    const Order_ID = req.body.Order_ID
+    db.query("SELECT * FROM `book` LEFT JOIN `cart` ON `book`.`Book_ID` = `cart`.`Book_ID` WHERE `cart`.`bill_ID` = (?) ",[Order_ID],(err,result) =>{
+        if(err){
+            console.log(err)
+        }else {
+            res.send(result)
+        }
+    })
+
+
+});
+
 app.post('/Add_to_cart',(req,res) => {
     const Book_Id  = req.body.b_ID
     const book_temp = req.body.book_temp
     const Phone = req.body.Phone
     const total = req.body.total
 
-    db.query("INSERT INTO `cart`(`id`, `cus_ID`, `product_ID`, `quantity`, `total`, `bill_ID`) VALUES (?,?,?,?,?,?)",[0,Phone,Book_Id,book_temp,total,"null"],(err,result) => {
+    db.query("INSERT INTO `cart`(`id`, `Phone`, `Book_Id`, `quantity`, `total`, `bill_ID`) VALUES (?,?,?,?,?,?)",[0,Phone,Book_Id,book_temp,total,"null"],(err,result) => {
         if(err){
             console.log(err)
             res.send("fail");
@@ -55,14 +83,53 @@ app.post('/Post_select_book',(req,res) => {
 
 app.post('/Requst_cart',(req,res) => {
     const phone = req.body.Phone
-    db.query("SELECT * FROM book LEFT JOIN cart ON book.`Book_ID` = cart.`Book_ID` WHERE cart.`Phone` = (?) AND cart.`bill_ID` = (?) ",[phone,"null"],(err,result) =>{
+    db.query("SELECT * FROM `book` LEFT JOIN `cart` ON `book`.`Book_ID` = `cart`.`Book_ID` WHERE `cart`.`Phone` = (?) AND `cart`.`bill_ID` = (?) ",[phone,"null"],(err,result) =>{
         if(err){
             console.log(err)
         }else {
+           
             res.send(result)
         }
     })
 
+})
+
+app.post('/Delete_cart',(req,res) =>{
+    const cart_id = req.body.cart_id
+
+    db.query("DELETE FROM `cart` WHERE `id` = (?)",[cart_id],(err,result) => {
+        if(err){
+            console.log(err)
+        }else{
+            console.log("delete")
+            res.send("succes")
+        }
+    })
+})
+//SELECT SUM(`total`) AS totalprice FROM `cart` WHERE 1
+
+app.post('/Sum_total',(req,res) =>{
+    const Phone = req.body.Phone
+    db.query("SELECT SUM(`total`) AS totalprice FROM `cart` WHERE `Phone` = (?) AND `bill_ID` = (?)",[Phone,"null"],(err,result) => {
+        if(err){
+            console.log(err)
+        }else{
+            
+            res.send(result)
+        }
+    })
+})
+
+app.post('/Sum_total_bill',(req,res) =>{
+    const Order_ID = req.body.Order_ID
+    db.query("SELECT SUM(`total`) AS totalprice FROM `cart` WHERE `bill_ID` = (?)",[Order_ID],(err,result) => {
+        if(err){
+            console.log(err)
+        }else{
+            
+            res.send(result)
+        }
+    })
 })
 
 app.post('/requst_login',(req,res) => {
@@ -103,6 +170,18 @@ app.post('/Register',(req,res) => {
         }
     );
 });
+
+app.post('/Get_user',(req,res) =>{
+    const Phone = req.body.Phone
+
+    db.query("SELECT * FROM `customer_infomation` WHERE `Phone` = (?)",[Phone],(err,result) =>{
+        if(err){
+
+        }else{
+            res.send(result)
+        }
+    })
+})
 
 
 

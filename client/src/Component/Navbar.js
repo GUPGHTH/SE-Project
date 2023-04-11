@@ -14,13 +14,39 @@ function Navbar() {
 	const show_login = () =>{
 		if (sessionStorage.getItem("login_status") == "true"){
 			return(
-				<a href="/">{sessionStorage.getItem("usernamelogin")}</a> 
+				
+				<nav ref={navRef}>
+				<a href="/Book_shelf">หนังสือ</a>
+				<a href="/Contact">ติดต่อ</a>
+				<a href="/Order_history">การสั่งซื้อ</a> 
+				<a href="/Cart">ตะกร้าสินค้า</a>
+				<a href="/Userpage">{sessionStorage.getItem("usernamelogin")}</a> 
+				
+				<button
+					className="nav-btn nav-close-btn"
+					onClick={showNavbar}>
+					<FaTimes />
+				</button>
+			</nav>
 
 			);
 		}
 		else{
 			return(
+				<nav ref={navRef}>
+				<a href="/Book_shelf">หนังสือ</a>
+				<a href="/Contact">ติดต่อ</a>
+				<a href="/login">การสั่งซื้อ</a> 
+				<a href="/login">ตะกร้าสินค้า</a>
 				<a href="/login">เข้าสู่ระบบ</a> 
+				
+				<button
+					className="nav-btn nav-close-btn"
+					onClick={showNavbar}>
+					<FaTimes />
+				</button>
+			</nav>
+				
 			);
 		}
 	}
@@ -31,19 +57,7 @@ function Navbar() {
 		<header>
 			<h1 className="System_Name"> SanookkidSanookarn</h1>
 			
-			<nav ref={navRef}>
-				<a href="/Book_shelf">หนังสือ</a>
-				<a href="/Contact">ติดต่อ</a>
-				<a href="/#">การสั่งซื้อ</a> 
-				<a href="/Cart">ตะกร้าสินค้า</a>
-				{show_login()}
-				
-				<button
-					className="nav-btn nav-close-btn"
-					onClick={showNavbar}>
-					<FaTimes />
-				</button>
-			</nav>
+			{show_login()}
 			<button
 				className="nav-btn"
 				onClick={showNavbar}>
