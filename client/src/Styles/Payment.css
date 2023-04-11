@@ -1,0 +1,14 @@
+.Payment-container{
+    padding: 10px 10px;
+    margin: 25px 25px;
+}
+.QR-code-payment{
+    padding: 10px 10px;
+}
+.payment-detali a{
+    font-size: 20px;
+    margin-top: 4000px;
+}
+.QR-code-payment img{
+    width: 450px;
+}

@@ -16,10 +16,10 @@ import Login from './Component/Login';
 import Login_state from './Component/Login_state';
 import Register_fail from './Component/Reg_fail';
 import Register_suc from './Component/Reg_suc';
-
 import Contact from './Component/Contact';
 import Register from './Component/Register';
 import Cart from './Component/Cart';
+import Payment from './Component/Payment'
 import {
   BrowserRouter,
   Switch,
@@ -54,7 +54,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Home/>} />
+          <Route index element={<Book_shelf/>} />
           <Route path="Book_shelf" element={<Book_shelf/>} />
           <Route path="Add_book" element={<Add_book/>} />
           <Route path="Manage_book" element={<Manage_book/>} />
@@ -67,6 +67,7 @@ function App() {
           <Route path="Reg_f" element={<Register_fail/>}></Route>
           <Route path="Reg_s" element={<Register_suc/>}></Route>
           <Route path="Cart" element={<Cart/>}></Route>
+          <Route path="Payment" element={<Payment/>}></Route>
           
         </Route>
       </Routes>
