@@ -1,7 +1,7 @@
 import * as React from "react";
 import Axios from "axios";
 import { useState } from "react";
-import { Link, useParams,useNavigate  } from "react-router-dom";
+import { useNavigate  } from "react-router-dom";
 import "../Styles/login.css";
 
 export default function Sing_up() {
@@ -15,11 +15,13 @@ export default function Sing_up() {
     sessionStorage.setItem("usernamelogin", n);
     sessionStorage.setItem("login_status", "true");
     sessionStorage.setItem("role",r)
+    sessionStorage.setItem("Phone",phone)
 
     setTimeout(() => {
       sessionStorage.setItem("usernamelogin","null");
       sessionStorage.setItem("login_status","false");
       sessionStorage.setItem("role","null");
+      sessionStorage.setItem("Phone","null")
 
     }, 7200000);
   };

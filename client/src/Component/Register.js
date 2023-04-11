@@ -1,7 +1,7 @@
 import * as React from "react";
 import Axios from "axios";
 import { useState } from "react";
-import { Link, useParams,useNavigate } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import "../Styles/login.css";
 
 export default function Register(){
@@ -16,10 +16,10 @@ export default function Register(){
             Fist_name : Fist_name,
             Last_name : Last_name,
             Phone : Phone,
-            password : password,
+            password : password
                 
-        }).then( (Response) =>{
-            if (Response.data=="Values inserted"){
+        }).then( (Response) =>{ 
+            if (Response.data === "Values inserted"){
                 navigate('/Reg_s', { replace: true });
             }else{
                 navigate('/Reg_f', { replace: true });

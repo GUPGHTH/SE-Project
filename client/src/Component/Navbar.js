@@ -35,7 +35,7 @@ function Navbar() {
 				<a href="/Book_shelf">หนังสือ</a>
 				<a href="/Contact">ติดต่อ</a>
 				<a href="/#">การสั่งซื้อ</a> 
-				<a href="/#">ตะกร้าสินค้า</a>
+				<a href="/Cart">ตะกร้าสินค้า</a>
 				{show_login()}
 				
 				<button

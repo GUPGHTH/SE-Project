@@ -4,9 +4,9 @@ import { useState } from 'react';
 import { Link ,useParams} from 'react-router-dom';
 import '../Styles/gridbox.css'
 
-export default function Book_home() {
+export default function Book_shelf() {
     const [booklist,setbooklist] = useState([]);
-    const {user} = useParams();
+    
 
     const getBooklist = () =>{
         Axios.get('http://localhost:3001/Requst_book').then((Response) => {
@@ -18,7 +18,7 @@ export default function Book_home() {
   
   return (
     <body className='Book_home'>
-      <div class="group">
+      <div className="group">
         
         <input  placeholder="Search" type="search" class="input"/>
       </div>
