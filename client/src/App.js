@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import Axios from 'axios'
 import Book_shelf from './Component/Book_shelf';
 import Navbar from './Component/Navbar.js';
-import Home from './Component/Home';
+
 import Layout from './Component/Layout';
 import Add_book from './Component/Add_book';
 import Manage_book from './Component/Management_book';
@@ -16,10 +16,13 @@ import Login from './Component/Login';
 import Login_state from './Component/Login_state';
 import Register_fail from './Component/Reg_fail';
 import Register_suc from './Component/Reg_suc';
-
+import Payment from './Component/Payment';
 import Contact from './Component/Contact';
 import Register from './Component/Register';
 import Cart from './Component/Cart';
+import Order_history from './Component/Order_history';
+import See_order_detail from './Component/See_order_detail';
+import Userpage from './Component/Userpage';
 import {
   BrowserRouter,
   Switch,
@@ -54,7 +57,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Home/>} />
+          <Route index element={<Book_shelf/>} />
           <Route path="Book_shelf" element={<Book_shelf/>} />
           <Route path="Add_book" element={<Add_book/>} />
           <Route path="Manage_book" element={<Manage_book/>} />
@@ -67,6 +70,11 @@ function App() {
           <Route path="Reg_f" element={<Register_fail/>}></Route>
           <Route path="Reg_s" element={<Register_suc/>}></Route>
           <Route path="Cart" element={<Cart/>}></Route>
+          <Route path='Order_history' element={<Order_history/>}></Route>
+          <Route path='See_order_detail/:Order_ID' element={<See_order_detail/>}></Route>
+          <Route path='Userpage' element={<Userpage/>}></Route>
+          <Route path='Payment' element={<Payment/>}></Route>
+          
           
           
         </Route>
