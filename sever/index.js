@@ -55,7 +55,7 @@ app.post('/Post_select_book',(req,res) => {
 
 app.post('/Requst_cart',(req,res) => {
     const phone = req.body.Phone
-    db.query("SELECT * FROM `cart` WHERE `cus_ID` = (?)",[phone],(err,result) =>{
+    db.query("SELECT * FROM `book` LEFT JOIN `cart` ON `book`.`Book_ID` = `cart`.`Book_ID` WHERE `cart`.`Phone` = (?) AND `cart`.`bill_ID` = (?) ",[phone,"null"],(err,result) =>{
         if(err){
             console.log(err)
         }else {

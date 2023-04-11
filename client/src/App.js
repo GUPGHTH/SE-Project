@@ -68,6 +68,7 @@ function App() {
           <Route path="Reg_s" element={<Register_suc/>}></Route>
           <Route path="Cart" element={<Cart/>}></Route>
           
+          
         </Route>
       </Routes>
     </BrowserRouter>
