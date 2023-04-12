@@ -345,8 +345,8 @@ app.post('/Add_book_to_table',(req,res) => {
     const Pic = req.body.Book_Pic;
 
     db.query(
-        "INSERT INTO book (Book_ID,Book_Name,Book_Type,Book_Price,Book_detail,Book_Quantity,Book_Pic) VALUES(?,?,?,?,?,?,?)",
-        [ID,Name,Type,Price,Detail,Quantity,Pic],
+        "INSERT INTO book (Book_ID,Book_Name,Book_Type,Book_Price,Book_detail,Book_Quantity,Book_Pic,Book_Status) VALUES(?,?,?,?,?,?,?,?)",
+        [ID,Name,Type,Price,Detail,Quantity,Pic,1],
         (err,result) =>{
             if(err){
                 console.log(err);
