@@ -77,7 +77,7 @@ export default function Edit_Book() {
                 <div className='add_book_item'>
                     <form action=''>
                         <div className='name-input'>
-                            <label htmlFor='Book_ID' className='form-label'>Book_ID: </label>
+                            <label htmlFor='Book_ID' className='form-label'>รหัสหนังสือ: </label>
                             <input
                                 defaultValue={booklist[0]?.Book_ID || ""}
                                 type='text'
@@ -93,7 +93,7 @@ export default function Edit_Book() {
                         </div>
 
                         <div className='name-input'>
-                            <label htmlFor='Book_Name' className='form-label'>Name: </label>
+                            <label htmlFor='Book_Name' className='form-label'>ชื่อหนังสือ: </label>
                             <input
                                 defaultValue={booklist[0]?.Book_Name || ""}
                                 type='text'
@@ -106,7 +106,7 @@ export default function Edit_Book() {
                         </div>
                         <div className='name-input'>
                             <label htmlFor='Book_Type' className='form-label'>
-                                Book_Type:
+                            ชนิดหนังสือ:
                             </label>
                             <input
                             defaultValue={booklist[0]?.Book_Type || ""}
@@ -120,7 +120,7 @@ export default function Edit_Book() {
                         </div>
                         <div className='name-input'>
                             <label htmlFor='Book_Price' className='form-label'>
-                                Book_Price:
+                            ราคาหนังสือ:
                             </label>
                             <input
                             defaultValue={booklist[0]?.Book_Price || ""}
@@ -134,7 +134,7 @@ export default function Edit_Book() {
                         </div>
                         <div className='name-input'>
                             <label htmlFor='Book_Detail' className='form-label'>
-                                Book_Detail:
+                            รายละเอียด:
                             </label>
                             <input
                             defaultValue={booklist[0]?.Book_Detail || ""}
@@ -148,7 +148,7 @@ export default function Edit_Book() {
                         </div>
                         <div className='name-input'>
                             <label htmlFor='Book_Quantity' className='form-label'>
-                                Book_quantity:
+                            จำนวน:
                             </label>
                             <input
                                 defaultValue={booklist[0]?.Book_Quantity || ""}
@@ -162,7 +162,7 @@ export default function Edit_Book() {
                         </div>
                         <div className='name-input'>
                             <label htmlFor='Book_Pic' className='form-label'>
-                                Book_Pic:
+                            รหัสรูปภาพจาก Google drive:
                             </label>
                             <input
                                 defaultValue={booklist[0]?.Book_Pic || ""}

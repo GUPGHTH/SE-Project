@@ -17,7 +17,7 @@ const db = mysql.createConnection({
  var selectbook = "";
 
 app.get('/Requst_book',(req,res) => {
-    db.query("SELECT * FROM book",(err , result) => {
+    db.query("SELECT * FROM book WHERE `Book_Status` != 0",(err , result) => {
         if(err){
             console.log(err);
         }else{
@@ -150,7 +150,7 @@ app.post('/requst_login',(req,res) => {
 })
 
 app.post('/Order_manange',(req,res)=>{
-    db.query("SELECT * FROM `order` WHERE `Order_Status` = (?)",["ปรกติ"],(err,result) =>{
+    db.query("SELECT * FROM `order` WHERE `Order_Status` = (?)",["ปกติ"],(err,result) =>{
         if(err){
             console.log(err)
         }else{
@@ -243,11 +243,24 @@ app.post('/add_order',(req,res) =>{
 
 //confirm_order_by_cus
 
+app.post('/Delete_book',(req,res)=>{
+    const b_id = req.body.b_ID
+    db.query("UPDATE `book` SET `Book_Status`= (?) WHERE `Book_ID` =(?)",[0,b_id],(err,result) =>{
+        if(err){
+            console.log(err)
+        }else{
+            res.send(result)
+
+            
+        }
+    })
+})
+
 app.post('/confirm_order_by_cus',(req,res) =>{
     const order_id = req.body.order_id
     const Des = req.body.Des
     const Phone = req.body.Phone
-    db.query("UPDATE `order` SET `Order_Status`=(?),`Destination`=(?) WHERE `Order_ID` = (?)",["ปรกติ",Des,order_id],(err,result) =>{
+    db.query("UPDATE `order` SET `Order_Status`=(?),`Destination`=(?) WHERE `Order_ID` = (?)",["ปกติ",Des,order_id],(err,result) =>{
         if(err){
             console.log(err)
         }else{

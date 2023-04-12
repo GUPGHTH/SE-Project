@@ -3,13 +3,14 @@ import * as React from 'react';
 
 import Axios from 'axios';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import '../Styles/gridbox.css'
 
 
 
 
 export default function Manage_book() {
+    const navigate = useNavigate();
 
     
     const [booklist,setbooklist] = useState([]);
@@ -21,6 +22,15 @@ export default function Manage_book() {
         });
     }
     getBooklist();
+
+    const Delete_book = (b_ID) =>{
+        Axios.post('http://localhost:3001/Delete_book',{
+            b_ID : b_ID
+        }).then( (Response)=>{
+            navigate('/Manage_book', { replace: true });
+        }
+        )
+    }
 
     
 
@@ -50,12 +60,13 @@ export default function Manage_book() {
                             
                             <button className="button-30" >Edit Book</button>
                             </Link> 
-
-                            <Link to= {'/Delete_book/'+val.Book_ID}> 
+ 
                             
-                            <button className="button-29" >Delete</button> 
+                            <button className="button-29" onClick={() =>{
+                                Delete_book(val.Book_ID)
+                            }}>Delete</button> 
                             
-                            </Link> 
+                            
                             
 
                      </div>

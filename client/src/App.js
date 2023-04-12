@@ -78,9 +78,7 @@ function App() {
           <Route path='Payment' element={<Payment/>}></Route>
           <Route path='Manage_order' element={<Manage_order/>}></Route>
           <Route path='Edit_delivery_ID/:Order_ID' element={<Edit_delivery_ID/>}></Route>
-          
-          
-          
+
         </Route>
       </Routes>
     </BrowserRouter>
